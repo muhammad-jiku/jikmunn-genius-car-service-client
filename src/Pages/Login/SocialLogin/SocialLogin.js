@@ -8,29 +8,33 @@ import {
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../Shared/Loading/Loading';
+import useToken from '../../../customHooks/useToken/useToken';
 
 const SocialLogin = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+  const [signInWithGithub, githubUser, githubLoading, githubError] =
+    useSignInWithGithub(auth);
+  const [token] = useToken(googleUser || githubUser);
   const navigate = useNavigate();
   const location = useLocation();
 
   let errorElement;
   let from = location.state?.from?.pathname || '/';
 
-  if (loading || loading1) {
+  if (googleLoading || githubLoading) {
     return <Loading></Loading>;
   }
 
-  if (error || error1) {
+  if (googleError || githubError) {
     errorElement = (
       <p className="text-danger">
-        Error: {error?.message} {error1?.message}
+        Error: {googleError?.message} {githubError?.message}
       </p>
     );
   }
 
-  if (user || user1) {
+  if (token) {
     navigate(from, { replace: true });
   }
 

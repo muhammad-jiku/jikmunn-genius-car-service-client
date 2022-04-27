@@ -7,7 +7,7 @@ function ManageServices() {
     const proceed = window.confirm('Are you sure   want to delete?');
     if (proceed) {
       console.log('Deleted id is ', id);
-      const url = `https://rocky-ravine-73760.herokuapp.com/service/${id}`;
+      const url = `https://rocky-ravine-73760.herokuapp.com/services/${id}`;
       fetch(url, {
         method: 'DELETE',
       })

@@ -42,13 +42,22 @@ const Checkout = () => {
     };
     axios
       .post('https://rocky-ravine-73760.herokuapp.com/order', order)
+      // fetch('https://rocky-ravine-73760.herokuapp.com/order', {
+      //   method: 'POST',
+      //   headers: {
+      //     'content-type': 'application/json',
+      //   },
+      //   body: JSON.stringify(order),
+      // })
       .then((res) => {
         const { data } = res;
         if (data?.insertedId) {
           toast('Your order is booked!');
           e.target.reset();
         }
+        // res.json();
       })
+      // .then((data) => console.log(data))
       .catch((err) => console.log(err));
   };
 
