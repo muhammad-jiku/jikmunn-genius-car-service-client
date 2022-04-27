@@ -34,6 +34,13 @@ function Orders() {
     <div>
       {console.log(orders)}
       <h1>Orders added : {orders.length} </h1>
+      {orders.map((order) => (
+        <div key={order?._id}>
+          <p>
+            {order?.service} is checked out by {order?.email}{' '}
+          </p>
+        </div>
+      ))}
     </div>
   );
 }
