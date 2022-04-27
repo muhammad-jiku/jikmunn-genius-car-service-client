@@ -5,7 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, useParams } from 'react-router-dom';
 import useServiceDetail from '../../../customHooks/useServiceDetail/useServiceDetail';
 import auth from '../../../firebase.init';
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -41,12 +41,12 @@ const Checkout = () => {
       phone: e.target.phone.value,
     };
     axios
-      .post('http://localhost:5000/order', order)
+      .post('https://rocky-ravine-73760.herokuapp.com/order', order)
       .then((res) => {
-        const { data } = res
+        const { data } = res;
         if (data?.insertedId) {
-          toast('Your order is booked!')
-          e.target.reset()
+          toast('Your order is booked!');
+          e.target.reset();
         }
       })
       .catch((err) => console.log(err));
