@@ -15,6 +15,8 @@ import Header from './Pages/Shared/Header/Header';
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import 'react-toastify/dist/ReactToastify.css';
 import Orders from './Pages/Orders/Orders';
+import Services from './Pages/Home/Services/Services';
+import Experts from './Pages/Home/Experts/Experts';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           path="/service/:serviceId"
           element={<ServiceDetail></ServiceDetail>}
         ></Route>
+        <Route path="/services" element={<Services></Services>} />
+        <Route path="/experts" element={<Experts></Experts>} />
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
