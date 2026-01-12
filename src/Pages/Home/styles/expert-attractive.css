@@ -1,0 +1,32 @@
+.expert-card {
+  border: 1.5px solid #e0e0e0;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(60, 80, 120, 0.12), 0 1.5px 6px rgba(60, 80, 120, 0.08);
+  background: linear-gradient(135deg, #f8fafc 80%, #e3f0ff 100%);
+  padding: 18px 12px 12px 12px;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.expert-card:hover {
+  box-shadow: 0 8px 32px rgba(60, 80, 120, 0.18), 0 3px 12px rgba(60, 80, 120, 0.12);
+  transform: translateY(-4px) scale(1.03);
+  border-color: #90caf9;
+}
+
+.expert-card .card-img-top {
+  border-radius: 12px;
+  object-fit: cover;
+  height: 220px;
+  width: 100%;
+}
+
+.expert-card .card-title {
+  color: #1976d2;
+  font-weight: 600;
+}
+
+.expert-card .btn-primary {
+  background: linear-gradient(90deg, #1976d2 60%, #64b5f6 100%);
+  border: none;
+  font-weight: 500;
+}

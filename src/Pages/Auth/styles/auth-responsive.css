@@ -1,0 +1,9 @@
+.responsive-auth-container {
+  width: 75% !important;
+}
+
+@media (min-width: 576px) {
+  .responsive-auth-container {
+    width: 50% !important;
+  }
+}

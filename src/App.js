@@ -1,74 +1,71 @@
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import About from './Pages/About/About';
-import AddService from './Pages/AddService/AddService';
-import Checkout from './Pages/Checkout/Checkout/Checkout';
-import Home from './Pages/Home/Home/Home';
-import Login from './Pages/Login/Login/Login';
-import Register from './Pages/Login/Register/Register';
-import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
-import ManageServices from './Pages/ManageServices/ManageServices';
-import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
-import Footer from './Pages/Shared/Footer/Footer';
-import Header from './Pages/Shared/Header/Header';
-import NotFound from './Pages/Shared/NotFound/NotFound';
-import 'react-toastify/dist/ReactToastify.css';
+import Login from './Pages/Auth/Login';
+import Register from './Pages/Auth/Register';
+import RequireAuth from './Pages/Auth/RequireAuth';
+import Experts from './Pages/Home/Experts';
+import Home from './Pages/Home/Home';
+import Services from './Pages/Home/Services';
+import Checkout from './Pages/Orders/Checkout';
 import Orders from './Pages/Orders/Orders';
-import Services from './Pages/Home/Services/Services';
-import Experts from './Pages/Home/Experts/Experts';
+import AddService from './Pages/Services/AddService';
+import ManageServices from './Pages/Services/ManageServices';
+import ServiceDetail from './Pages/Services/ServiceDetail';
+import Footer from './Pages/Shared/Footer';
+import Header from './Pages/Shared/Header';
+import NotFound from './Pages/Shared/NotFound';
 
 function App() {
   return (
     <div>
-      <Header></Header>
+      <Header />
       <Routes>
-        <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/home" element={<Home></Home>}></Route>
+        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/services/:serviceId' element={<ServiceDetail />} />
+        <Route path='/services' element={<Services />} />
+        <Route path='/experts' element={<Experts />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route
-          path="/service/:serviceId"
-          element={<ServiceDetail></ServiceDetail>}
-        ></Route>
-        <Route path="/services" element={<Services></Services>} />
-        <Route path="/experts" element={<Experts></Experts>} />
-        <Route path="/about" element={<About></About>}></Route>
-        <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/register" element={<Register></Register>}></Route>
-        <Route
-          path="/checkout/:serviceId"
+          path='/checkout/:serviceId'
           element={
             <RequireAuth>
-              <Checkout></Checkout>
+              <Checkout />
             </RequireAuth>
           }
-        ></Route>
+        />
         <Route
-          path="/addservice"
+          path='/addservice'
           element={
             <RequireAuth>
               <AddService />
             </RequireAuth>
           }
-        ></Route>
+        />
         <Route
-          path="/manage"
+          path='/manage'
           element={
             <RequireAuth>
               <ManageServices />
             </RequireAuth>
           }
-        ></Route>
+        />
         <Route
-          path="/orders"
+          path='/orders'
           element={
             <RequireAuth>
               <Orders />
             </RequireAuth>
           }
-        ></Route>
-        <Route path="*" element={<NotFound></NotFound>}></Route>
+        />
+        <Route path='*' element={<NotFound />} />
       </Routes>
-      <Footer></Footer>
+      <Footer />
       <ToastContainer />
     </div>
   );
